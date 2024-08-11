@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="cook.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For cook</title>
+</head>
+
+<body>
+    <script src="cook.js"></script>
+    <header>
+        <div class="container"> 
+            <a href="cook.html">
+                <img src="배너.jpg" alt="배너 이미지" class="banner-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/products">회원정보</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                </ul>
+            </nav>
+        </div>
+        <form action="/search" method="get">
+            <label for="search"></label>
+            <input type="text" id="search" name="q" placeholder="요리재료를 입력하세요..">
+            <button type="submit">요리재료입력</button>
+            <button type="button">레시피</button>
+        </form>
+    </header>
+
+    <main id="main" class="container">
+        <div class="product-container">
+            <div class="product-card">
+                <img src="참치찌개.jpg" alt="Product 1" class="small-image">
+                <h3>참치찌개</h3>
+                <p>time 25m</p>
+            </div>
+        
+            <div class="product-card">
+                <img src="마늘수육.jpg" alt="Product 2" class="small-image">
+                <h3>마늘수육</h3>
+                <p>time 1h 20m.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 .</p>
+        </div>
+    </footer>
+
+    <script src="cook.js"></script>
+</body>
+</html>

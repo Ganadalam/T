@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="Ko">
+<head>
+    <link rel="stylesheet" href="cook.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> For cook - 재료 기반 요리 추천 서비스 </title>
+</head>
+
+<body>
+    <script src="cook.js"></script>
+    <header>
+        <div class="container"> 
+            <a href="cook.html">
+                <img src="배너.jpg" alt="배너 이미지" class="banner-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href= "/products"a> 회원정보 </a></li>
+                    <li><a href= "/login" > 로그인 </a></li>
+                    <li><a href= "/signup" > 회원가입 </a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <form action= "/search" method= "get">
+            <label for= "search"></label>
+            <input type= "text" id= "ingredientInput" placeholder= "요리재료를 입력하세요." >
+            <button onclick="searchRecipe()"> 검색 </button>
+            <!-- <button type="button"> 레시피 </button> -->
+        </form>
+    </header>
+    
+    <div id="recipe-container">
+        <!-- 검색 결과가 여기에 동적으로 추가 예정. -->
+    </div>
+    
+    <div class="slider">
+        <div class="slides">
+            <img src="참치찌개.jpg" alt="Product 1">
+            <img src="마늘수육.jpg" alt="Product 2">
+        </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+     <script src="script.js"></script>
+    <!-- <div class="slide-control">
+        <div class="control01">
+            <label for="slide03" class="left"></label>
+            <label for="slide02" class="right"></label>
+        </div>
+        <div class="control02">
+            <label for="slide01" class="left"></label>
+            <label for="slide03" class="right"></label>
+        </div>
+        <div class="control03">
+            <label for="slide02" class="left"></label>
+            <label for="slide01" class="right"></label>
+        </div>
+    </div> -->
+    <!-- <div class="section">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02" checked>
+        <input type="radio" name="slide" id="slide03" checked>
+ -->
+        <!-- <div class="slidewrap">
+            <ul class="slidelist">
+                <li>
+                    <a>
+                        <label for="slide 03" class="left"></label>
+                       
+
+                            <main id="main" class="container"> 
+                        <div class="product-container">
+                            <div class="product-card">
+                                <img src="참치찌개.jpg" alt="Product 1" class="small-image">
+                                <h3> 참치찌개 </h3>
+                                <p> 소요시간: 25분 </p>
+                        <label for="slide02" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide 01" class="left"></label>
+                        <div class="product-card">
+                            <img src="마늘수육.jpg" alt="Product 2" class="small-image">
+                            <h3> 마늘수육 </h3>
+                            <p> 소요시간: 1시간 20분 </p>
+                        </div>
+
+                        <label for="slide03" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide 02" class="left"></label>
+                        <img src= "vegansalade.jpg"> 
+                        <label for="slide01" class="right"></label>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+
+    <main id="main" class="container">
+        <div class="product-container">
+            <div class="product-card">
+                <img src="참치찌개.jpg" alt="Product 1" class="small-image">
+                <h3> 참치찌개 </h3>
+                <p> 소요시간: 25분 </p>
+            </div>
+        
+            <div class="product-card">
+                <img src="마늘수육.jpg" alt="Product 2" class="small-image">
+                <h3> 마늘수육 </h3>
+                <p> 소요시간: 1시간 20분 </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="container">
+            <p> © 2024 . For cook </p>
+        </div>
+    </footer>
+
+    <script src="cook.js"></script>
+</body>
+</html>
