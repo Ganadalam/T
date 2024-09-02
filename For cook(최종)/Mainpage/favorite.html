@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즐겨찾기 페이지</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 전체 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* 밝은 배경색 */
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 80%; /* 전체 컨테이너 너비를 줄임 */
+            margin: 0 auto;
+            max-width: 900px; /* 최대 너비를 줄임 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            width: 200px; /* 로고 크기 조절 */
+        }
+
+        #top-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        #top-nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #top-nav a img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        nav#tabs {
+            background-color: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        nav#tabs .tab {
+            text-decoration: none;
+            color: #333;
+            padding: 12px 25px; /* 탭의 패딩을 늘려서 크기 조정 */
+            display: inline-block;
+            font-size: 1.2em; /* 탭의 폰트 크기 조정 */
+            margin: 0 5px; /* 탭 간의 여백 추가 */
+            border-radius: 5px;
+        }
+
+        nav#tabs .tab:hover,
+        nav#tabs .tab.active {
+            background-color: #ff6347; /* Tomato color */
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-collection {
+            max-width: 700px; /* 레시피 모음의 최대 너비 조정 */
+            margin: 0 auto 20px; /* 중앙 정렬 및 하단 여백 추가 */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            position: relative;
+        }
+
+        .recipe-collection h2 {
+            font-size: 1.4em; /* 제목 폰트 사이즈 조정 */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .recipe-collection input {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1em;
+            width: calc(100% - 40px); /* 아이콘 크기 만큼 공간을 줄임 */
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .recipe-collection .edit-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .recipe-collection .edit-icon img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .recipe-collection .add-favorites {
+            background-color: #5bc0de;
+            color: white;
+            padding: 8px 12px; /* 버튼 패딩을 줄여서 가로폭 감소 */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.9em; /* 버튼 폰트 사이즈 조정 */
+            margin-top: 10px;
+            margin-left: 260px; /* 버튼을 왼쪽으로 이동 */
+            display: block;
+            max-width: 150px; /* 버튼의 최대 너비 설정 */
+            width: auto; /* 버튼의 너비를 자동으로 설정 */
+            box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+        }
+
+        .recipe-collection .add-favorites:hover {
+            background-color: #31b0d5;
+        }
+
+        #favorite-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #favorite-list li {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        #favorite-list img {
+            width: 100px; /* 즐겨찾기 레시피 이미지 크기 조정 */
+            height: auto;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .recipe-info {
+            flex: 1;
+        }
+
+        .recipe-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+
+        .recipe-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .remove-favorite {
+            background-color: #d9534f;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.9em;
+        }
+
+        .remove-favorite:hover {
+            background-color: #c9302c;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        #social-media img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html"><img src="로고.jpg" alt="Logo" id="logo"></a>
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="profile.html" title="회원가입"><img src="회원가입.png" alt="회원가입"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </nav>
+        </div>
+    </header>
+
+    <nav id="tabs">
+        <a href="best.html" class="tab">BEST</a>
+        <a href="new.html" class="tab">NEW</a>
+        <a href="vegetarian.html" class="tab">VEGETARIAN</a>
+        <a href="meat.html" class="tab">고기</a>
+    </nav>
+    
+    <main>
+        <h1>내 즐겨찾기 레시피</h1>
+
+        <!-- 레시피 모음 1 -->
+        <section class="recipe-collection">
+            <h2>
+                <input type="text" value="레시피 모음 1" class="collection-title">
+                <span class="edit-icon"><img src="pencil-icon.png" alt="Edit"></span>
+            </h2>
+            <a href="main.html" class="add-favorites">추가하러 가기</a>
+            <ul id="favorite-list">
+                <li>
+                    <img src="img/favorite-recipe1.png" alt="즐겨찾기 레시피 1">
+                    <div class="recipe-info">
+                        <h3>레시피 1</h3>
+                        <p>레시피에 대한 간단한 설명.</p>
+                    </div>
+                    <button class="remove-favorite">제거</button>
+                </li>
+                <li>
+                    <img src="img/favorite-recipe2.png" alt="즐겨찾기 레시피 2">
+                    <div class="recipe-info">
+                        <h3>레시피 2</h3>
+                        <p>레시피에 대한 간단한 설명.</p>
+                    </div>
+                    <button class="remove-favorite">제거</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 레시피 모음 2 -->
+        <section class="recipe-collection">
+            <h2>
+                <input type="text" value="레시피 모음 2" class="collection-title">
+                <span class="edit-icon"><img src="pencil-icon.png" alt="Edit"></span>
+            </h2>
+            <a href="main.html" class="add-favorites">추가하러 가기</a>
+            <ul id="favorite-list">
+                <li>
+                    <img src="img/favorite-recipe3.png" alt="즐겨찾기 레시피 3">
+                    <div class="recipe-info">
+                        <h3>레시피 3</h3>
+                        <p>레시피에 대한 간단한 설명.</p>
+                    </div>
+                    <button class="remove-favorite">제거</button>
+                </li>
+                <li>
+                    <img src="img/favorite-recipe4.png" alt="즐겨찾기 레시피 4">
+                    <div class="recipe-info">
+                        <h3>레시피 4</h3>
+                        <p>레시피에 대한 간단한 설명.</p>
+                    </div>
+                    <button class="remove-favorite">제거</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div id="social-media">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.blog.com" target="_blank" aria-label="Blog"><img src="blog.png" alt="Blog"></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle tab switching, removal of favorite items, and collection title editing
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('#tabs .tab');
+            const currentPage = window.location.href; // 현재 페이지 URL
+
+            tabs.forEach(tab => {
+                if (tab.href === currentPage) {
+                    tab.classList.add('active');
+                }
+                tab.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    window.location.href = this.href;
+                });
+            });
+
+            // 즐겨찾기 항목 제거 기능
+            const removeButtons = document.querySelectorAll('.remove-favorite');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const listItem = this.closest('li');
+                    listItem.remove();
+                });
+            });
+
+            // 레시피 모음 이름 수정 기능
+            const titles = document.querySelectorAll('.collection-title');
+            titles.forEach(title => {
+                title.addEventListener('change', function() {
+                    // 수정된 제목을 서버에 저장하거나 로컬 저장소에 저장할 수 있습니다.
+                    console.log('Updated title:', this.value);
+                });
+            });
+
+            // 레시피 모음 수정 아이콘 클릭 이벤트
+            const editIcons = document.querySelectorAll('.edit-icon');
+            editIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    input.focus();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

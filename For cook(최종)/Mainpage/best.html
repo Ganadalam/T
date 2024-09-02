@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEST 레시피</title>
+    <style>
+        /* 전체 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        #logo {
+            width: 200px; /* 로고 크기 조절 */
+        }
+
+        #top-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #top-nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #top-nav a img {
+            width: 45px;
+            height: 45px;
+        }
+
+        /* 새로운 상단 반응형 탭 스타일 */
+        .page-tabs {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .page-tabs a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .page-tabs a.active, .page-tabs a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .menu-tabs a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu-tabs a.active, .menu-tabs a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .recipe-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .recipe-info {
+            padding: 15px;
+        }
+
+        .recipe-info h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .recipe-info p {
+            margin: 10px 0;
+        }
+
+        .favorite-icon {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #ff5722;
+            transition: color 0.3s;
+        }
+
+        .favorite-icon.favorited {
+            color: #e64a19;
+        }
+
+        .favorite-icon:hover {
+            color: #e64a19;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        #social-media img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .recipe-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html" class="logo-link">
+                <img src="로고.jpg" alt="Logo" id="logo">
+            </a>
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="profile.html" title="프로필"><img src="회원가입.png" alt="프로필"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 상단 반응형 페이지 탭 -->
+    <div class="page-tabs">
+        <a href="best.html" class="active">BEST</a>
+        <a href="new.html">NEW</a>
+        <a href="vegetarian.html">VEGETARIAN</a>
+        <a href="meat.html">고기</a>
+    </div>
+
+    <main class="container">
+        <h1>BEST 레시피</h1>
+        <div class="menu-tabs" id="menuTabs">
+            <!-- 메뉴 항목들이 여기에 추가됩니다. -->
+        </div>
+        <div class="recipe-list" id="recipeList">
+            <!-- 레시피 항목들이 여기에 추가됩니다. -->
+        </div>
+    </main>
+
+    <footer>
+        <div id="social-media">
+            <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            <a href="https://www.blog.com"><img src="blog.png" alt="Blog"></a>
+        </div>
+    </footer>
+
+    <script>
+        // 메뉴 항목과 레시피 데이터를 정의합니다.
+        const menuItems = [
+            { name: '전체 레시피', href: '#all-recipes', category: 'all' },
+            { name: '별점 높은 레시피', href: '#top-rated', category: 'top-rated' },
+            { name: '빠른 식사', href: '#quick-meals', category: 'quick-meals' },
+            { name: '계절별 레시피', href: '#seasonal', category: 'seasonal' },
+            { name: '건강식 레시피', href: '#healthy', category: 'healthy' },  
+            { name: '디저트', href: '#desserts', category: 'desserts' },          
+            { name: '고기 요리', href: '#meat-dishes', category: 'meat' }  // 고기 카테고리 추가
+        ];
+
+        const recipes = [
+            { title: '매운 닭날개', description: '매운 소스가 매력적인 닭날개 레시피입니다.', imgSrc: 'hotwings.jpg', category: 'top-rated' },
+            { title: '비빔밥', description: '신선한 채소와 고기가 어우러진 비빔밥입니다.', imgSrc: '비빔밥.jpg', category: 'quick-meals' },
+            { title: '후라이드 치킨', description: '바삭한 후라이드 치킨 레시피입니다.', imgSrc: '치킨.jpg', category: 'all' }, 
+            { title: '초코 케이크', description: '부드러운 초코 케이크 레시피입니다.', imgSrc: '케이크.jpg', category: 'desserts' },
+            { title: '감자탕', description: '부드럽고 진한 맛의 감자탕 레시피입니다.', imgSrc: '감자탕.jpg', category: 'meat' },  // 고기 레시피 추가
+            { title: '불고기', description: '달콤하고 짭짤한 불고기 레시피입니다.', imgSrc: '불고기.jpg', category: 'meat' }  // 고기 레시피 추가
+        ];
+
+        // 로컬 스토리지에서 즐겨찾기 항목을 불러옵니다.
+        const getFavorites = () => JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // 즐겨찾기 항목을 로컬 스토리지에 저장합니다.
+        const setFavorites = (favorites) => localStorage.setItem('favorites', JSON.stringify(favorites));
+
+        // 메뉴 항목을 동적으로 생성합니다.
+        const menuTabsContainer = document.getElementById('menuTabs');
+        menuItems.forEach((item, index) => {
+            const menuLink = document.createElement('a');
+            menuLink.href = item.href;
+            menuLink.textContent = item.name;
+            menuLink.dataset.category = item.category;
+            if (index === 0) menuLink.classList.add('active'); // 기본 활성화된 탭
+            menuTabsContainer.appendChild(menuLink);
+        });
+
+        // 레시피 항목을 동적으로 생성합니다.
+        const recipeListContainer = document.getElementById('recipeList');
+        const displayRecipes = (category) => {
+            recipeListContainer.innerHTML = ''; // 기존 레시피 제거
+            recipes.filter(recipe => category === 'all' || recipe.category === category)
+                .forEach((recipe, index) => {
+                    const recipeItem = document.createElement('div');
+                    recipeItem.className = 'recipe-item';
+                    recipeItem.innerHTML = `
+                        <img src="${recipe.imgSrc}" alt="${recipe.title}">
+                        <div class="recipe-info">
+                            <h3>${recipe.title}</h3>
+                            <p>${recipe.description}</p>
+                            <button class="favorite-icon" data-index="${index}">${getFavorites().includes(index) ? '❤️' : '🤍'}</button>
+                        </div>
+                    `;
+                    recipeListContainer.appendChild(recipeItem);
+                });
+
+            // 즐겨찾기 버튼 클릭 시 동작 처리
+            document.querySelectorAll('.favorite-icon').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = button.getAttribute('data-index');
+                    const favorites = getFavorites();
+                    const isFavorited = favorites.includes(Number(index));
+
+                    if (isFavorited) {
+                        // 즐겨찾기에서 제거
+                        const updatedFavorites = favorites.filter(item => item !== Number(index));
+                        setFavorites(updatedFavorites);
+                        button.textContent = '🤍';
+                    } else {
+                        // 즐겨찾기에 추가
+                        favorites.push(Number(index));
+                        setFavorites(favorites);
+                        button.textContent = '❤️';
+                    }
+                    button.classList.toggle('favorited', !isFavorited);
+                });
+            });
+        };
+
+        // 초기 로드 시 전체 레시피 표시
+        displayRecipes('all');
+
+        // 메뉴 탭 클릭 시 필터 적용
+        document.querySelectorAll('.menu-tabs a').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.menu-tabs a').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                displayRecipes(tab.dataset.category);
+            });
+        });
+    </script>
+</body>
+</html>
