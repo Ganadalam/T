@@ -1,0 +1,118 @@
+/* 전체 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    color: #333;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#logo {
+    width: 150px; /* 로고 크기 조절 */
+}
+
+#top-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+#top-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+#top-nav a img {
+    width: 24px;
+    height: 24px;
+}
+
+main {
+    padding: 20px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.recipe-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.recipe-item img {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-info {
+    padding: 15px;
+}
+
+.recipe-info h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.recipe-info p {
+    margin: 10px 0;
+}
+
+.favorite-icon {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ff5722;
+}
+
+.favorite-icon:hover {
+    color: #e64a19;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+#social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
