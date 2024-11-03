@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고기 레시피</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #f9c0b5; /* 토마토 색상 */
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        #logo {
+            width: 190px;
+            display: block;
+            margin-left: 190px;
+        }
+
+        #top-nav {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+
+        #top-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #top-nav a img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        #top-nav a img:hover {
+            transform: scale(1.1);
+        }
+
+        main.container {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* 탭 메뉴 스타일링 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-bottom: 2px solid #ff6347;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tab:hover, .tab.active {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px 15px;
+            width: 100%;
+            max-width: 360px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #ff6347;
+            outline: none;
+        }
+
+        .recipe-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .recipe-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .recipe-item:hover {
+            transform: scale(1.03);
+        }
+
+        .recipe-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .recipe-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .recipe-info h3 {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #ff6347;
+        }
+
+        .recipe-info p {
+            color: #777;
+            margin: 5px 0 10px;
+            font-size: 0.85em;
+        }
+
+        .favorite-icon {
+            background-color: white;
+            border: 2px solid #ff6347;
+            color: #ff6347;
+            padding: 6px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .favorite-icon.liked {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .favorite-icon:before {
+            content: '❤️';
+            font-size: 1em;
+            margin-right: 6px;
+        }
+
+        .favorite-icon.liked:before {
+            content: '❤️';
+        }
+
+        .favorite-text {
+            font-size: 0.9em;
+            margin-left: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .favorite-icon.liked .favorite-text {
+            opacity: 1;
+        }
+
+        .favorite-icon .favorite-text {
+            opacity: 0.5;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            #top-nav {
+                margin-top: 10px;
+            }
+
+            .search-container input[type="text"] {
+                width: 90%;
+            }
+
+            .favorite-text {
+                font-size: 0.8em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                padding: 8px 0;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <a href="main.html" class="logo-link">
+            <img src="로고.jpg" alt="Logo" id="logo">
+        </a>
+
+        <nav id="top-nav">
+            <a href="profile.html" title="회원가입"><img src="회원가입.png" alt="회원가입"></a>
+            <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+            <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+            <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- 탭 메뉴 추가 -->
+        <div class="tabs">
+            <div class="tab" data-tab="best">BEST</div>
+            <div class="tab" data-tab="new">NEW</div>
+            <div class="tab" data-tab="vegetarian">VEGETARIAN</div>
+            <div class="tab active" data-tab="meat">고기</div>
+        </div>
+        
+        <h1>고기 레시피</h1>
+
+        <!-- 검색창 추가 -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="레시피 검색...">
+        </div>
+
+        <div class="recipe-list" id="recipe-list">
+            <div class="recipe-item" data-title="불고기">
+                <img src="불고기.jpg" alt="불고기">
+                <div class="recipe-info">
+                    <h3>불고기</h3>
+                    <p>달콤하고 짭짤한 불고기 레시피입니다. 풍부한 맛을 느낄 수 있습니다.</p>
+                    <button class="favorite-icon" data-favorite="false">
+                        <span class="favorite-text">즐겨찾기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="recipe-item" data-title="감자탕">
+                <img src="감자탕.jpg" alt="감자탕">
+                <div class="recipe-info">
+                    <h3>감자탕</h3>
+                    <p>부드럽고 진한 맛의 감자탕 레시피입니다. 가족과 함께하는 식사에 적합합니다.</p>
+                    <button class="favorite-icon" data-favorite="false">
+                        <span class="favorite-text">즐겨찾기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="recipe-item" data-title="돼지갈비">
+                <img src="돼지갈비.jpg" alt="돼지갈비">
+                <div class="recipe-info">
+                    <h3>돼지갈비</h3>
+                    <p>맛있게 양념된 돼지갈비 레시피입니다. 바비큐 파티에 최적입니다.</p>
+                    <button class="favorite-icon" data-favorite="false">
+                        <span class="favorite-text">즐겨찾기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="recipe-item" data-title="스테이크">
+                <img src="스테이크.jpg" alt="스테이크">
+                <div class="recipe-info">
+                    <h3>스테이크</h3>
+                    <p>완벽하게 구운 스테이크 레시피입니다. 특별한 날에 맞는 요리입니다.</p>
+                    <button class="favorite-icon" data-favorite="false">
+                        <span class="favorite-text">즐겨찾기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="recipe-item" data-title="립">
+                <img src="립.jpg" alt="립">
+                <div class="recipe-info">
+                    <h3>립</h3>
+                    <p>소스와 함께 조리된 립 레시피입니다. 입에서 살살 녹는 맛을 제공합니다.</p>
+                    <button class="favorite-icon" data-favorite="false">
+                        <span class="favorite-text">즐겨찾기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 For Cook. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('search-input');
+            const recipeItems = document.querySelectorAll('.recipe-item');
+            const favoriteButtons = document.querySelectorAll('.favorite-icon');
+            const tabs = document.querySelectorAll('.tab');
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                recipeItems.forEach(item => {
+                    const title = item.getAttribute('data-title').toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const isFavorite = button.getAttribute('data-favorite') === 'true';
+                    if (isFavorite) {
+                        button.classList.remove('liked');
+                        button.setAttribute('data-favorite', 'false');
+                    } else {
+                        button.classList.add('liked');
+                        button.setAttribute('data-favorite', 'true');
+                    }
+                });
+            });
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // 탭에 active 클래스 추가 및 제거
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // 탭에 맞는 페이지로 이동
+                    const tabName = tab.getAttribute('data-tab');
+                    window.location.href = `${tabName}.html`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

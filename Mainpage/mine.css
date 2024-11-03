@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #5a67d8;
+}
+
+.logo-link, .icon-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    cursor: pointer;
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    margin: 0;
+}
+
+.icon-links {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    height: 30px;
+    cursor: pointer;
+}
+
+main {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="text"], 
+input[type="number"], 
+textarea, 
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+textarea:focus, 
+select:focus {
+    border-color: #5a67d8;
+    outline: none;
+}
+
+input[type="file"] {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4348a0;
+}
+
+.favorite-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.favorite-btn {
+    font-size: 24px;
+    color: #888;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.favorite-btn.active {
+    color: #ff6347;
+    transform: scale(1.1);
+}
+
+#confirmation-message {
+    font-size: 18px;
+    color: #28a745;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.show-message {
+    opacity: 1;
+}

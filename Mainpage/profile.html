@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 페이지</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- 상단 탭 (왼쪽 상단) -->
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="profile.html" title="회원가입"><img src="회원가입.png" alt="회원가입"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </nav>
+            <!-- 상단 로고 (메인 페이지로 이동하게 설정) -->
+            <a href="main.html" class="logo-link">
+                <img src="로고.jpg" alt="Logo" id="logo">
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="profile-section">
+            <h2>회원 프로필</h2>
+            <div class="profile-info-box">
+                <p><strong>이름:</strong> <span id="displayName">김연아</span></p>
+                <p><strong>이메일:</strong> <span id="displayEmail">Queen@gmail.com</span></p>
+                <p><strong>생년월일:</strong> <span id="displayBirthday">1990-01-01</span></p>
+                <p><strong>성별:</strong> <span id="displayGender">여성</span></p>
+            </div>
+        </div>
+        <div class="update-section">
+            <h2>프로필 수정</h2>
+            <div class="form-box">
+                <form id="profileForm" action="/updateProfile" method="POST">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">생년월일</label>
+                        <input type="date" id="birthday" name="birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">성별</label>
+                        <select id="gender" name="gender" required>
+                            <option value="남성">남성</option>
+                            <option value="여성">여성</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">변경 사항 저장</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="profile.js"></script>
+</body>
+</html>

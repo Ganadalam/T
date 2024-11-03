@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW 레시피</title>
+    <link rel="stylesheet" href="new.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            width: 200px;
+        }
+
+        #top-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        #top-nav a img {
+            width: 45px;
+            height: 45px;
+        }
+
+        #tabs {
+            background-color: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #tabs .tab {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 1em;
+        }
+
+        #tabs .tab:hover,
+        #tabs .tab.active {
+            background-color: #ff6347; /* Tomato color */
+            color: white;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-and-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .recipe-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 300px; /* Set a fixed width for better layout control */
+        }
+
+        .recipe-item:hover {
+            transform: scale(1.05);
+        }
+
+        .recipe-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .recipe-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .recipe-info h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #ff6347;
+        }
+
+        .recipe-info p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .favorite-icon {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .favorite-icon:hover {
+            background-color: #e5533d;
+            transform: scale(1.1);
+        }
+
+        .favorite-icon.active {
+            background-color: #4caf50; /* 초록색으로 변경 */
+            color: #fff;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        #social-media a {
+            margin: 0 10px;
+        }
+
+        #social-media img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #top-nav {
+                margin-top: 10px;
+            }
+
+            #tabs {
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html"><img src="로고.jpg" alt="Logo" id="logo"></a>
+            <div id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="edit-info.html" title="회원가입"><img src="회원가입.png" alt="회원가입 및 정보수정"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </div>
+        </div>
+    </header>
+
+    <nav id="tabs">
+        <a href="best.html" class="tab">BEST</a>
+        <a href="new.html" class="tab active">NEW</a>
+        <a href="vegetarian.html" class="tab">VEGETARIAN</a>
+        <a href="meat.html" class="tab">고기</a>
+    </nav>
+
+    <main class="container">
+        <div class="main-container">
+            <div class="title-and-list">
+                <h1>NEW 레시피</h1>
+                <div class="recipe-list">
+                    <div class="recipe-item">
+                        <img src="샐러드.jpg" alt="레시피 1">
+                        <div class="recipe-info">
+                            <h3>신선한 샐러드</h3>
+                            <p>겨울철에 딱 맞는 신선한 채소와 과일로 만든 샐러드입니다. 가벼운 점심으로 추천합니다.</p>
+                            <button class="favorite-icon" onclick="toggleFavorite(this)">❤️ 즐겨찾기</button>
+                        </div>
+                    </div>
+                    <div class="recipe-item">
+                        <img src="새우파스타.jpg" alt="레시피 2">
+                        <div class="recipe-info">
+                            <h3> 새우 파스타 </h3>
+                            <p>크림 소스와 치킨이 어우러진 알프레도 파스타입니다. 풍부한 맛과 부드러운 식감이 특징입니다.</p>
+                            <button class="favorite-icon" onclick="toggleFavorite(this)">❤️ 즐겨찾기</button>
+                        </div>
+                    </div>
+                    <div class="recipe-item">
+                        <img src="스무디볼.jpg" alt="레시피 3">
+                        <div class="recipe-info">
+                            <h3>비건 스무디 볼</h3>
+                            <p>과일과 채소로 만든 건강한 비건 스무디 볼입니다. 아침 식사나 간식으로 좋습니다.</p>
+                            <button class="favorite-icon" onclick="toggleFavorite(this)">❤️ 즐겨찾기</button>
+                        </div>
+                    </div>
+                    <div class="recipe-item">
+                        <img src="불고기.jpg" alt="레시피 4">
+                        <div class="recipe-info">
+                            <h3>소고기 불고기</h3>
+                            <p>달콤하고 매콤한 양념으로 조리한 소고기 불고기입니다. 밥과 함께 즐기기 좋습니다.</p>
+                            <button class="favorite-icon" onclick="toggleFavorite(this)">❤️ 즐겨찾기</button>
+                        </div>
+                    </div>
+                    <div class="recipe-item">
+                        <img src="치즈버거.jpg" alt="레시피 5">
+                        <div class="recipe-info">
+                            <h3>치즈버거</h3>
+                            <p>홈메이드 패티와 신선한 채소로 만든 치즈버거입니다. 간편하면서도 맛있는 한 끼로 제격입니다.</p>
+                            <button class="favorite-icon" onclick="toggleFavorite(this)">❤️ 즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="social-media">
+            <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram" title="Instagram"></a>
+            <a href="https://www.blog.com"><img src="blog.png" alt="Blog" title="Blog"></a>
+            <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube" title="YouTube"></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFavorite(button) {
+            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                button.innerHTML = '❤️ 즐겨찾기 해제';
+            } else {
+                button.innerHTML = '❤️ 즐겨찾기';
+            }
+        }
+    </script>
+</body>
+</html>
