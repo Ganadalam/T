@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>닭가슴살 샐러드 레시피</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 30px 0; /* 상단 영역을 넓히기 위해 패딩 증가 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 200px;
+            margin-left: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            margin: 0 20px; /* 아이콘 사이 간격 추가 */
+            text-decoration: none;
+            color: #34495e;
+            transition: color 0.3s;
+        }
+
+        .navbar a img {
+            width: 40px; /* 아이콘 크기 확대 */
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .navbar a:hover img {
+            transform: scale(1.2); /* 호버 시 확대 효과 */
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 900px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 2em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #eaeaea;
+        }
+
+        .ingredients, .instructions {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #34495e;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        .button-back {
+            background-color: #5bc0de;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .button-back:hover {
+            background-color: #31b0d5;
+        }
+
+        .current-page {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #777;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="main.html">
+                <img src="로고.jpg" alt="로고">
+            </a>
+        </div>
+        <div class="navbar">
+            <a href="favorite.html">
+                <img src="즐겨찾기.png" alt="즐겨찾기">
+            </a>
+            <a href="profile.html">
+                <img src="회원가입.png" alt="프로필">
+            </a>
+            <a href="signup.html">
+                <img src="로그인.png" alt="로그인">
+            </a>
+            <a href="community.html">
+                <img src="커뮤니티.png" alt="커뮤니티">
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <img src="레시피1.jpg" alt="닭가슴살 샐러드" class="recipe-image">
+        
+        <div class="ingredients">
+            <h2>재료</h2>
+            <ul>
+                <li>닭가슴살 200g</li>
+                <li>샐러드 채소</li>
+                <li>올리브 오일 2 큰술</li>
+                <li>소금, 후추</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h2>조리 방법</h2>
+            <ol>
+                <li>닭가슴살에 소금과 후추로 간을 합니다.</li>
+                <li>팬에 올리브 오일을 두르고 닭가슴살을 구워줍니다.</li>
+                <li>샐러드 채소와 함께 담아냅니다.</li>
+            </ol>
+        </div>
+
+        <p class="current-page">현재 페이지: 닭가슴살 샐러드</p>
+        <a href="favorite.html" class="button-back">즐겨찾기 페이지로 돌아가기</a>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="youtube.png" alt="YouTube">
+            </a>
+            <a href="https://blog.com" target="_blank">
+                <img src="blog.png" alt="Blog">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

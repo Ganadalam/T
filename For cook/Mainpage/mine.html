@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 레시피 추가하기</title>
+    <link rel="stylesheet" href="mine.css">
+</head>
+<body>
+    <header>
+        <a href="main.html" class="logo-link">
+            <img src="로고.jpg" alt="로고" class="logo">
+        </a>
+        <h1 class="page-title">나만의 레시피 추가하기</h1>
+        <div class="icon-links">
+            <a href="favorite.html" class="icon-link">
+                <img src="즐겨찾기.png" alt="로그인" class="icon">
+            </a>
+            <a href="login.html" class="icon-link">
+                <img src="회원가입.png" alt="프로필" class="icon">
+            </a>
+            <a href="profile.html" class="icon-link">
+                <img src="로그인.png" alt="로그인" class="icon">
+            </a>
+            <a href="community.html" class="icon-link">
+                <img src="커뮤니티.png" alt="커뮤니티" class="icon">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <form id="recipe-form">
+            <label for="recipe-name">레시피 이름</label>
+            <input type="text" id="recipe-name" name="recipe-name" placeholder="레시피 이름을 입력하세요" required>
+
+            <label for="ingredients">재료 목록 (쉼표로 구분)</label>
+            <textarea id="ingredients" name="ingredients" placeholder="예: 양파, 마늘, 고추" required></textarea>
+
+            <label for="instructions">조리 방법</label>
+            <textarea id="instructions" name="instructions" placeholder="조리 방법을 자세히 적어주세요" required></textarea>
+
+            <label for="cooking-time">조리 시간 (분)</label>
+            <input type="number" id="cooking-time" name="cooking-time" placeholder="조리 시간을 입력하세요" min="1" required>
+
+            <label for="difficulty">난이도</label>
+            <select id="difficulty" name="difficulty" required>
+                <option value="">난이도를 선택하세요</option>
+                <option value="easy">쉬움</option>
+                <option value="medium">보통</option>
+                <option value="hard">어려움</option>
+            </select>
+
+            <label for="recipe-photo">레시피 사진</label>
+            <input type="file" id="recipe-photo" name="recipe-photo" accept="image/*">
+
+            <div class="favorite-section">
+                <button class="favorite-btn" type="button" aria-label="즐겨찾기 추가">♡</button>
+            </div>
+
+            <button type="submit">레시피 추가</button>
+        </form>
+        <p id="confirmation-message" style="display: none;">레시피가 성공적으로 추가되었습니다!</p>
+    </main>
+
+    <script src="mine.js"></script>
+</body>
+</html>

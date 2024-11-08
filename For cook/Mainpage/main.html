@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* 기본적인 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fafafa; /* 더 밝은 회색 */
+            color: #555; /* 텍스트 색상: 조금 더 연한 회색 */
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #f8b8c5; /* 더 부드럽고 연한 핑크 */
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0; /* 밝은 회색 */
+        }
+
+        .logo-link img {
+            width: 120px; /* 로고 크기 키우기 */
+            height: auto;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: #fff; /* 흰색 텍스트 */
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #f8f8f8; /* 호버시 밝은 흰색 */
+        }
+
+        main {
+            padding: 30px 0;
+        }
+
+        .btn {
+            background-color: #f8b8c5; /* 연한 핑크 */
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f5a5b4; /* 좀 더 진한 핑크 */
+            transform: translateY(-2px);
+        }
+
+        /* 탭 요약 스타일 */
+        .tab-summary {
+            background-color: #f8b8c5; /* 부드러운 연한 핑크 */
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-align: center;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-summary:hover {
+            background-color: #f5a5b4; /* 더 진한 핑크 */
+        }
+
+        .tab-content {
+            padding: 20px;
+            background-color: #ffffff; /* 흰색 배경 */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8b8c5; /* 부드러운 연한 핑크 */
+            color: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        #social-media a {
+            margin: 0 10px;
+        }
+
+        /* Weekly Menu Styles */
+        #weekly-menu {
+            margin-top: 30px;
+        }
+
+        .slider {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            justify-content: center;
+        }
+
+        .menu-item {
+            margin-right: 20px;
+            position: relative;
+            width: 280px; /* 슬라이더 이미지 크기 */
+            height: 200px; /* 슬라이더 이미지 크기 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            font-size: 24px;
+            color: #f8b8c5; /* 연한 핑크 */
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .favorite-btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .like-count {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .arrow {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            border: none;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* 작은 화면에서 슬라이더 항목 크기 조정 */
+        @media (max-width: 768px) {
+            .menu-item {
+                width: 220px; /* 작은 화면에서 이미지 크기 조정 */
+                height: 150px; /* 작은 화면에서 이미지 크기 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html" class="logo-link" aria-label="홈으로 이동">
+                <img src="로고.jpg" alt="Logo" id="logo">
+            </a>
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기 아이콘"></a>
+                <a href="profile.html" title="프로필"><img src="회원가입.png" alt="프로필 아이콘"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인 아이콘"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티 아이콘"></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="hero">
+            <h1>오늘 하루 식단을 책임질 최고의 레시피를 제공해드립니다.</h1>
+            <p>당신의 접시 위에 영감을 주는 다양한 레시피를 소개합니다.</p>
+            <a href="mine.html" class="btn" aria-label="나만의 레시피 추가하기">나만의 레시피 추가하기</a>
+        </section>
+
+        <!-- 안내 모달 - 탭 형식으로 구현 -->
+        <section id="guide-tabs">
+            <details>
+                <summary class="tab-summary">안내 페이지 열기</summary>
+                <div class="tab-content">
+                    <h2>사이트 사용 안내</h2>
+                    <p>여기에는 웹사이트 사용법이나 기능 설명을 추가할 수 있습니다.</p>
+                    <p> 다양한 레시피를 검색하고, 자신만의 레시피를 추가할 수 있습니다.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Tabs Section -->
+        <section id="tabs">
+            <a href="best.html" class="tab-button active">BEST</a>
+            <a href="new.html" class="tab-button">NEW</a>
+            <a href="vegetarian.html" class="tab-button">VEGETARIAN</a>
+            <a href="meat.html" class="tab-button">고기</a>
+        </section>
+
+        <!-- Recipe Banner Section -->
+        <section id="recipe-banner">
+            <img src="립.jpg" alt="오늘의 추천 레시피">
+            <h2>오늘의 레시피</h2>
+            <p>오늘 하루를 위해 제공되는 추천 레시피 정보를 지금 바로 확인해보세요!</p>
+            <a href="best.html" class="btn">추천 레시피 보기</a>
+        </section>
+
+        <!-- Weekly Menu Section -->
+        <section id="weekly-menu">
+            <h2>주간 인기 메뉴</h2>
+            <div class="slider">
+                <div class="menu-item">
+                    <img src="마늘수육.jpg" alt="주간 인기 메뉴 1">
+                    <button class="favorite-btn" aria-label="즐겨찾기 추가" onclick="addFavorite(this)">♡</button>
+                    <span class="like-count">1.2K</span>
+                </div>
+                <div class="menu-item">
+                    <img src="참치찌개.jpg" alt="주간 인기 메뉴 2">
+                    <button class="favorite-btn" aria-label="즐겨찾기 추가" onclick="addFavorite(this)">♡</button>
+                    <span class="like-count">3.2K</span>
+                </div>
+                <div class="menu-item">
+                    <img src="vegansalade.jpg" alt="주간 인기 메뉴 3">
+                    <button class="favorite-btn" aria-label="즐겨찾기 추가" onclick="addFavorite(this)">♡</button>
+                    <span class="like-count">2.8K</span>
+                </div>
+                <div class="menu-item">
+                    <img src="감자탕.jpg" alt="주간 인기 메뉴 4">
+                    <button class="favorite-btn" aria-label="즐겨찾기 추가" onclick="addFavorite(this)">♡</button>
+                    <span class="like-count">2.1K</span>
+                </div>
+                <button class="arrow left-arrow" aria-label="이전 이미지">❮</button>
+                <button class="arrow right-arrow" aria-label="다음 이미지">❯</button>
+            </div>
+        </section>
+
+        <!-- Popular Ingredients Section -->
+        <section id="popular-ingredients">
+            <h2>인기 재료</h2>
+            <div class="ingredients-box">
+                <div class="ingredient">
+                    <img src="마늘.jpg" alt="마늘">
+                    <p>마늘</p>
+                </div>
+                <div class="ingredient">
+                    <img src="양파.jpg" alt="양파">
+                    <p>양파</p>
+                </div>
+                <div class="ingredient">
+                    <img src="토마토.jpg" alt="토마토">
+                    <p>토마토</p>
+                </div>
+                <div class="ingredient">
+                    <img src="옥수수.jpg" alt="옥수수">
+                    <p>옥수수</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe Section -->
+        <section id="subscribe">
+            <h2>구독하기</h2>
+            <p>최신 레시피와 소식을 이메일로 받아보세요!</p>
+            <form action="/subscribe" method="post">
+                <input type="email" name="email" placeholder="이메일 주소" aria-label="이메일 주소" required>
+                <button type="submit">구독하기</button>
+            </form>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact-form">
+            <h2>문의하기</h2>
+            <form action="/submit" method="post">
+                <input type="email" name="email" placeholder="이메일" aria-label="이메일" required>
+                <textarea name="message" placeholder="문의 내용" rows="5" aria-label="문의 내용" required></textarea>
+                <button type="submit">제출하기</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div id="social-media">
+            <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            <a href="https://www.blog.com"><img src="blog.png" alt="Blog"></a>
+        </div>
+        <p>&copy; For cook. 2024 ver</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

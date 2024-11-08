@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즐겨찾기 페이지</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN 추가 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 기존 스타일 유지 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* 밝은 배경색 */
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            width: 200px;
+        }
+
+        #top-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        #top-nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #top-nav a img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        nav#tabs {
+            background-color: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        nav#tabs .tab {
+            text-decoration: none;
+            color: #333;
+            padding: 12px 25px;
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav#tabs .tab:hover,
+        nav#tabs .tab.active {
+            background-color: #ff6347; /* Tomato color */
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-collection {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            position: relative;
+        }
+
+        .recipe-collection h2 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .recipe-collection input {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1em;
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .recipe-collection .add-favorites,
+        .recipe-collection .view-collection {
+            background-color: #5bc0de;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-left: 10px;
+            max-width: 150px;
+            width: auto;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+        }
+
+        .recipe-collection .add-favorites:hover,
+        .recipe-collection .view-collection:hover {
+            background-color: #31b0d5;
+        }
+
+        #favorite-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #favorite-list li {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        #favorite-list img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .recipe-info {
+            flex: 1;
+        }
+
+        .recipe-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+
+        .recipe-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .remove-favorite {
+            background-color: #d9534f;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .remove-favorite:hover {
+            background-color: #c9302c;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        #social-media img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* 돋보기 아이콘에 스타일 추가 */
+        .view-collection {
+            background-color: transparent;
+            color: #007bff;
+            padding: 8px 12px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .view-collection:hover {
+            color: #ff6347; /* 마우스 오버시 색상 변화 */
+        }
+
+        .view-collection i {
+            margin-right: 5px; /* 아이콘과 텍스트 사이 간격 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html"><img src="로고.jpg" alt="Logo" id="logo"></a>
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="profile.html" title="회원가입"><img src="회원가입.png" alt="회원가입"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </nav>
+        </div>
+    </header>
+
+    <nav id="tabs">
+        <a href="best.html" class="tab">BEST</a>
+        <a href="new.html" class="tab">NEW</a>
+        <a href="vegetarian.html" class="tab">VEGETARIAN</a>
+        <a href="meat.html" class="tab">고기</a>
+    </nav>
+    
+    <main>
+        <h1>내 즐겨찾기 레시피</h1>
+
+        <!-- 레시피 모음 1 -->
+        <section class="recipe-collection">
+            <h2>
+                <input type="text" value="레시피 모음 1" class="collection-name" />
+                <!-- 돋보기 아이콘 사용 -->
+                <a href="recipedetail.html" class="view-collection"><i class="fas fa-search"></i> </a>
+            </h2>
+            <ul id="favorite-list">
+                <li>
+                    <img src="레시피1.jpg" alt="레시피 1 이미지">
+                    <div class="recipe-info">
+                        <h3>닭가슴살 샐러드</h3>
+                        <p>단백질이 풍부하고 건강한 샐러드입니다.</p>
+                        <button class="remove-favorite" onclick="removeFavorite(this)">삭제</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="레시피2.jpg" alt="레시피 2 이미지">
+                    <div class="recipe-info">
+                        <h3>치킨 파르메산</h3>
+                        <p>치킨과 치즈의 조화가 일품인 레시피입니다.</p>
+                        <button class="remove-favorite" onclick="removeFavorite(this)">삭제</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="add-favorites" onclick="addFavorite()">즐겨찾기 추가</button>
+        </section>
+
+        <!-- 레시피 모음 2 -->
+        <section class="recipe-collection">
+            <h2>
+                <input type="text" value="레시피 모음 2" class="collection-name" />
+                <!-- 돋보기 아이콘 사용 -->
+                <a href="recipedetail2.html" class="view-collection"><i class="fas fa-search"></i> </a>
+            </h2>
+            <ul id="favorite-list">
+                <li>
+                    <img src="레시피3.jpg" alt="레시피 3 이미지">
+                    <div class="recipe-info">
+                        <h3>비건 타코</h3>
+                        <p>신선한 채소와 고소한 맛이 조화를 이루는 타코입니다.</p>
+                        <button class="remove-favorite" onclick="removeFavorite(this)">삭제</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="add-favorites" onclick="addFavorite()">즐겨찾기 추가</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="social-media">
+            <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="인스타그램"></a>
+            <a href="https://youtube.com" target="_blank"><img src="youtube.png" alt="유튜브"></a>
+            <a href="https://blog.com" target="_blank"><img src="blog.png" alt="블로그"></a>
+        </div>
+        <p>&copy; 2024 레시피 웹사이트. 모든 권리 보유.</p>
+    </footer>
+
+    <script>
+        function removeFavorite(button) {
+            const listItem = button.parentElement.parentElement;
+            listItem.remove();
+        }
+
+        function addFavorite() {
+            // 즐겨찾기 추가 로직
+            alert("즐겨찾기가 추가되었습니다!");
+        }
+    </script>
+</body>
+</html>

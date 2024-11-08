@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+
+#top-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+#top-nav a img {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s;
+}
+
+#top-nav a img:hover {
+    transform: scale(1.1);
+}
+
+/* 페이지 상단 탭 스타일링 */
+.page-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #68d96c;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.tab-link:hover,
+.tab-link.active {
+    background-color: #4de052;
+    border-radius: 5px;
+}
+
+/* 히어로 섹션 */
+#hero {
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    margin: 20px 0;
+    position: relative;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.search-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+}
+
+#filter {
+    padding: 10px 15px;
+    border: none;
+    background-color: #469549;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#filter:hover {
+    background-color: #45a049;
+}
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.recipe-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.recipe-details h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.recipe-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.favorite-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #f44336;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.favorite-icon.liked {
+    color: #c62828;
+}
+
+.favorite-icon:hover {
+    color: #c62828;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .recipe-card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .search-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #search {
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #filter {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* 하단 소셜 미디어 링크 스타일 */
+footer {
+    padding: 20px;
+    background-color: #f4f4f4;  /* 배경색 추가 */
+    text-align: center;  /* 이미지를 중앙에 배치 */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;  /* 이미지들을 가로로 중앙 배치 */
+    gap: 20px;  /* 이미지들 사이에 간격을 설정 */
+}
+
+.social-links a {
+    display: inline-block;
+}
+
+.social-links img {
+    width: 40px;  /* 이미지 크기 설정 */
+    height: auto;  /* 비율을 유지하면서 크기 설정 */
+    transition: transform 0.3s ease;  /* 호버 효과 추가 */
+}
+
+.social-links img:hover {
+    transform: scale(1.1);  /* 호버 시 이미지 크기 약간 확대 */
+}

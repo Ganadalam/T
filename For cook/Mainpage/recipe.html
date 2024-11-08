@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레시피 상세 페이지</title>
+    <style>
+        /* 레시피 상세 페이지 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-header img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-header h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .recipe-header p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .ingredients, .instructions {
+            margin-top: 30px;
+        }
+
+        .ingredients h2, .instructions h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+
+        .ingredients ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .ingredients ul li, .instructions p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            text-indent: 20px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 16px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="recipe-header">
+            <img src="img/recipe.jpg" alt="레시피 이미지">
+            <h1>맛있는 마늘수육</h1>
+            <p>부드러운 고기와 향긋한 마늘의 조화로 완성되는 마늘수육 레시피를 소개합니다.</p>
+        </div>
+
+        <div class="ingredients">
+            <h2>재료</h2>
+            <ul>
+                <li>돼지고기 500g</li>
+                <li>마늘 10쪽</li>
+                <li>대파 1대</li>
+                <li>간장 3큰술</li>
+                <li>설탕 1큰술</li>
+                <li>참기름 1큰술</li>
+                <li>후추 약간</li>
+                <li>물 2컵</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h2>조리 방법</h2>
+            <p>1. 마늘과 대파는 다져줍니다.</p>
+            <p>2. 냄비에 돼지고기, 마늘, 대파, 간장, 설탕, 참기름, 후추, 물을 넣고 중간 불에서 끓입니다.</p>
+            <p>3. 끓기 시작하면 약한 불로 줄이고, 뚜껑을 덮어 40분 정도 졸여줍니다.</p>
+            <p>4. 고기가 부드럽게 익으면 불을 끄고, 먹기 좋은 크기로 썰어 접시에 담아냅니다.</p>
+            <p>5. 남은 육수를 소스처럼 고기에 뿌려 먹으면 더욱 맛있습니다.</p>
+        </div>
+
+        <a href="recipes.html" class="back-link">← 목록으로 돌아가기</a>
+    </div>
+
+</body>
+</html>

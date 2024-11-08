@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEST 레시피</title>
+    <style>
+        /* 전체 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        #logo {
+            width: 200px;
+        }
+        #top-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+        #top-nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        #top-nav a img {
+            width: 45px;
+            height: 45px;
+        }
+        .page-tabs {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .page-tabs a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .page-tabs a.active, .page-tabs a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        main {
+            padding: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .controls input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: border-color 0.3s;
+        }
+        .controls input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .controls select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #ffffff;
+            transition: border-color 0.3s;
+        }
+        .controls select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .recipe-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .recipe-item:hover {
+            transform: scale(1.05);
+        }
+        .recipe-item img {
+            width: 100%;
+            height: auto;
+        }
+        .recipe-info {
+            padding: 15px;
+        }
+        .recipe-info h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .recipe-info p {
+            margin: 10px 0;
+        }
+        .favorite-icon {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #ff5722;
+            transition: color 0.3s;
+        }
+        .favorite-icon.favorited .heart-icon {
+            color: #e64a19; /* 찬 하트 색상 */
+        }
+        .favorite-icon:hover .heart-icon {
+            color: #e64a19;
+        }
+        .heart-icon {
+            transition: color 0.3s;
+        }
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        #social-media img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        @media (max-width: 768px) {
+            .recipe-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="main.html" class="logo-link">
+                <img src="로고.jpg" alt="Logo" id="logo">
+            </a>
+            <nav id="top-nav">
+                <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+                <a href="profile.html" title="프로필"><img src="회원가입.png" alt="프로필"></a>
+                <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+                <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+            </nav>
+        </div>
+    </header>
+    <div class="page-tabs">
+        <a href="best.html" class="active">BEST</a>
+        <a href="new.html">NEW</a>
+        <a href="vegetarian.html">VEGETARIAN</a>
+        <a href="meat.html">MEAT</a>
+    </div>
+    <main class="container">
+        <h1>BEST 레시피</h1>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="레시피 검색" oninput="filterRecipes()" />
+            <select id="sortOption" onchange="filterRecipes()">
+                <option value="popularity">인기순</option>
+                <option value="latest">최신순</option>
+            </select>
+        </div>
+        <div class="recipe-list" id="recipeList">
+            <!-- 레시피 항목들이 여기에 추가됩니다. -->
+        </div>
+    </main>
+    <footer>
+        <div id="social-media">
+            <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            <a href="https://www.blog.com"><img src="blog.png" alt="Blog"></a>
+        </div>
+    </footer>
+    <script>
+        const recipes = [
+            { title: '매운 닭날개', description: '매운 소스가 매력적인 닭날개 레시피입니다.', imgSrc: 'hotwings.jpg', url: 'hotwings.html', popularity: 5, date: '2024-11-01' },
+            { title: '비빔밥', description: '신선한 채소와 고기가 어우러진 비빔밥입니다.', imgSrc: '비빔밥.jpg', url: 'bibimbap.html', popularity: 3, date: '2024-10-29' },
+            { title: '후라이드 치킨', description: '바삭한 후라이드 치킨 레시피입니다.', imgSrc: '치킨.jpg', url: 'friedchicken.html', popularity: 4, date: '2024-10-28' },
+            { title: '과일 샐러드', description: '신선한 과일로 만든 샐러드입니다.', imgSrc: '샐러드.jpg', url: 'salad.html', popularity: 2, date: '2024-10-27' },
+            { title: '초코 케이크', description: '부드럽고 달콤한 초코 케이크입니다.', imgSrc: '케이크.jpg', url: 'chocolatecake.html', popularity: 4, date: '2024-10-25' }
+        ];
+
+        function displayRecipes() {
+            const recipeList = document.getElementById('recipeList');
+            recipeList.innerHTML = '';
+
+            recipes.forEach(recipe => {
+                const recipeItem = document.createElement('div');
+                recipeItem.classList.add('recipe-item');
+
+                recipeItem.innerHTML = `
+                    <a href="${recipe.url}">
+                        <img src="${recipe.imgSrc}" alt="${recipe.title}">
+                    </a>
+                    <div class="recipe-info">
+                        <h3>${recipe.title}</h3>
+                        <p>${recipe.description}</p>
+                        <button class="favorite-icon" onclick="toggleFavorite(event)">
+                            <span class="heart-icon">&#9825;</span> <!-- 빈 하트로 시작 -->
+                        </button>
+                    </div>
+                `;
+                recipeList.appendChild(recipeItem);
+            });
+        }
+
+        function filterRecipes() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const sortOption = document.getElementById('sortOption').value;
+
+            const filteredRecipes = recipes.filter(recipe => 
+                recipe.title.toLowerCase().includes(searchInput) || 
+                recipe.description.toLowerCase().includes(searchInput)
+            );
+
+            filteredRecipes.sort((a, b) => {
+                if (sortOption === 'popularity') {
+                    return b.popularity - a.popularity;
+                } else if (sortOption === 'latest') {
+                    return new Date(b.date) - new Date(a.date);
+                }
+                return 0;
+            });
+
+            const recipeList = document.getElementById('recipeList');
+            recipeList.innerHTML = '';
+
+            filteredRecipes.forEach(recipe => {
+                const recipeItem = document.createElement('div');
+                recipeItem.classList.add('recipe-item');
+
+                recipeItem.innerHTML = `
+                    <a href="${recipe.url}">
+                        <img src="${recipe.imgSrc}" alt="${recipe.title}">
+                    </a>
+                    <div class="recipe-info">
+                        <h3>${recipe.title}</h3>
+                        <p>${recipe.description}</p>
+                        <button class="favorite-icon" onclick="toggleFavorite(event)">
+                            <span class="heart-icon">&#9825;</span>
+                        </button>
+                    </div>
+                `;
+                recipeList.appendChild(recipeItem);
+            });
+        }
+
+        function toggleFavorite(event) {
+            event.stopPropagation();
+            const button = event.target.closest('button');
+            const heartIcon = button.querySelector('.heart-icon');
+            
+            // 하트 아이콘의 클래스를 토글하여 상태 변경
+            heartIcon.classList.toggle('favorited');
+            heartIcon.innerHTML = heartIcon.classList.contains('favorited') ? '&#10084;' : '&#9825;';
+        }
+
+        displayRecipes();
+    </script>
+</body>
+</html>

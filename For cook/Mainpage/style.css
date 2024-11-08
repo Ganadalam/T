@@ -1,0 +1,163 @@
+/* 기본 스타일 초기화 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 공통 컨테이너 스타일 */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #ff6600;
+    padding: 20px 0;
+    color: white;
+    position: relative;
+}
+
+#logo {
+    width: 120px;
+}
+
+#top-nav {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#top-nav a {
+    margin-left: 10px;
+    color: white;
+}
+
+/* 메인 섹션 스타일 */
+main {
+    padding: 20px 0;
+}
+
+#hero {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* 탭 스타일 */
+#tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#tabs a {
+    text-decoration: none;
+    color: #ff6600;
+    padding: 10px 20px;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+}
+
+/* 슬라이더 스타일 */
+#weekly-menu {
+    position: relative;
+}
+
+.slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+}
+
+.slider .active {
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* 인기 재료 및 문의하기 박스 스타일 */
+#popular-ingredients, #contact-form {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.box {
+    border: 1px solid #ff6600;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form input, #contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#social-media a {
+    margin: 0 10px;
+    color: white;
+}

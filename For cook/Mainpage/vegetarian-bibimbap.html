@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채식 비빔밥 레시피</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #8fc7a7;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header img {
+            width: 180px;
+            height: auto;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            font-weight: 700;
+        }
+
+        /* 네비게이션 메뉴 */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #ff6347;
+        }
+
+        /* 오른쪽 상단 아이콘 메뉴 */
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            color: #333;
+            font-size: 2em;
+            transition: all 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            background-color: #ff6347;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .top-nav a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        .top-nav a:hover img {
+            transform: scale(1.2);
+        }
+
+        main.container {
+            width: 90%;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .recipe-header img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .recipe-details {
+            width: 100%;
+            max-width: 600px;
+            font-size: 1.2em;
+            color: #555;
+            margin-left: 20px;
+        }
+
+        .ingredients, .instructions, .drink-recommendation {
+            margin-bottom: 25px;
+        }
+
+        .ingredients ul, .instructions ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ingredients li, .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .favorite-icon {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .favorite-icon:hover {
+            background-color: #ff4500;
+            transform: scale(1.1);
+        }
+
+        .favorite-icon:before {
+            content: '❤️';
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 45px;
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .recipe-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .recipe-details {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .top-nav {
+                top: 10px;
+                right: 10px;
+                gap: 10px;
+            }
+
+            #tabs a {
+                padding: 8px 18px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="main.html">
+            <img src="로고.jpg" alt="Logo">
+        </a>
+        <h1>채식 비빔밥 레시피</h1>
+        
+        <!-- 오른쪽 상단 아이콘 메뉴 -->
+        <div class="top-nav">
+            <a href="favorite.html" title="즐겨찾기"><img src="즐겨찾기.png" alt="즐겨찾기"></a>
+            <a href="signup.html" title="회원가입"><img src="회원가입.png" alt="회원가입"></a>
+            <a href="login.html" title="로그인"><img src="로그인.png" alt="로그인"></a>
+            <a href="community.html" title="커뮤니티"><img src="커뮤니티.png" alt="커뮤니티"></a>
+        </div>
+    </header>
+
+    <!-- 탭 메뉴 -->
+    <nav id="tabs">
+        <a href="best.html" class="tab">BEST</a>
+        <a href="new.html" class="tab active">NEW</a>
+        <a href="vegetarian.html" class="tab">VEGETARIAN</a>
+        <a href="meat.html" class="tab">MEAT</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="recipe-header">
+            <img src="채식비빔밥.jpg" alt="Vegetarian Bibimbap">
+            <div class="recipe-details">
+                <h2>채식 비빔밥</h2>
+                <p>신선한 채소와 향긋한 고추장 소스를 곁들인 채식 비빔밥입니다. 간편하면서도 영양가가 풍부합니다.</p>
+
+                <div class="ingredients">
+                    <h3>재료</h3>
+                    <ul>
+                        <li>쌀밥 1인분</li>
+                        <li>시금치 1컵</li>
+                        <li>당근 1/2개</li>
+                        <li>버섯 1컵</li>
+                        <li>고추장 2큰술</li>
+                        <li>참기름 1큰술</li>
+                        <li>계란 1개</li>
+                    </ul>
+                </div>
+
+                <div class="instructions">
+                    <h3>조리 방법</h3>
+                    <ul>
+                        <li>시금치, 당근, 버섯을 각각 볶는다.</li>
+                        <li>그릇에 밥을 담고, 볶은 재료와 계란을 얹는다.</li>
+                        <li>고추장과 참기름을 넣고 비빈다.</li>
+                    </ul>
+                </div>
+
+                <div class="drink-recommendation">
+                    <h3>추천 음료</h3>
+                    <p>채식 비빔밥과 잘 어울리는 음료는 녹차나 보리차입니다.</p>
+                </div>
+
+                <button class="favorite-icon">
+                    <span>즐겨찾기</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/" title="Youtube"><img src="youtube.png" alt="Youtube"></a>
+            <a href="https://www.blog.com/" title="Blog"><img src="blog.png" alt="Blog"></a>
+        </div>
+    </footer>
+
+    <script>
+        const favoriteButton = document.querySelector('.favorite-icon');
+        favoriteButton.addEventListener('click', () => {
+            favoriteButton.classList.toggle('liked');
+            if (favoriteButton.classList.contains('liked')) {
+                favoriteButton.querySelector('span').textContent = '즐겨찾기 완료';
+            } else {
+                favoriteButton.querySelector('span').textContent = '즐겨찾기';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* 기본 페이지 설정 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #d2c1c1;
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#logo {
+    width: 200px;
+}
+
+#top-nav {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+#top-nav a {
+    margin: 0 12px;
+    display: inline-block;
+}
+
+#top-nav img {
+    width: 40px;
+    height: 40px;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #c9abab;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.login-container button:hover {
+    background-color: #555;
+}
+
+.login-container .forgot-password,
+.login-container .signup {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container .forgot-password a,
+.login-container .signup a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container .forgot-password a:hover,
+.login-container .signup a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+#social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+#social-media img {
+    width: 24px;
+    height: 24px;
+}

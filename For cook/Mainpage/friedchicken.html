@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fried Chicken 레시피</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* 헤더 */
+        header {
+            background-color: #f9c0b5;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 로고 */
+        header img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* 오른쪽 아이콘들 */
+        .right-nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .right-nav-icons a {
+            display: block;
+            width: 40px;
+            height: 40px;
+        }
+
+        .right-nav-icons img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .right-nav-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* 네비게이션 바 */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #ff6347;
+        }
+
+        /* 메인 콘텐츠 */
+        main.container {
+            width: 90%;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .recipe-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .recipe-header img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .recipe-details {
+            width: 60%;
+            margin-left: 30px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .ingredients, .instructions, .drink-recommendation {
+            margin-bottom: 20px;
+        }
+
+        .ingredients ul, .instructions ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ingredients li, .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .favorite-icon {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .favorite-icon:hover {
+            background-color: #ff4500;
+        }
+
+        .favorite-icon:before {
+            content: '❤️';
+            margin-right: 10px;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            header img {
+                width: 120px;
+            }
+
+            .recipe-header {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .recipe-header img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .recipe-details {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .favorite-icon {
+                padding: 10px 18px;
+                font-size: 1.1em;
+            }
+
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- 로고 왼쪽 -->
+        <a href="main.html">
+            <img src="로고.jpg" alt="Logo">
+        </a>
+
+        <!-- 오른쪽 상단 아이콘들 -->
+        <div class="right-nav-icons">
+            <a href="favorite.html" title="즐겨찾기">
+                <img src="즐겨찾기.png" alt="즐겨찾기">
+            </a>
+            <a href="signup.html" title="회원가입">
+                <img src="회원가입.png" alt="회원가입">
+            </a>
+            <a href="profile.html" title="프로필">
+                <img src="로그인.png" alt="프로필">
+            </a>
+            <a href="community.html" title="커뮤니티">
+                <img src="커뮤니티.png" alt="커뮤니티">
+            </a>
+        </div>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav>
+        <a href="favorite.html">즐겨찾기</a>
+        <a href="signup.html">회원가입</a>
+        <a href="profile.html">프로필</a>
+        <a href="community.html">커뮤니티</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="recipe-header">
+            <img src="치킨.jpg" alt="Fried Chicken">
+            <div class="recipe-details">
+                <h2>Fried Chicken</h2>
+                <p>바삭하고 고소한 맛이 일품인 프라이드 치킨입니다! 겉은 바삭, 속은 촉촉하게 튀겨낸 치킨입니다.</p>
+
+                <div class="ingredients">
+                    <h3>재료</h3>
+                    <ul>
+                        <li>닭고기 500g (날개나 다리살)</li>
+                        <li>밀가루 1컵</li>
+                        <li>전분 1/2컵</li>
+                        <li>소금, 후추 약간</li>
+                        <li>식용유 (튀김용)</li>
+                        <li>마늘 가루, 양파 가루</li>
+                    </ul>
+                </div>
+
+                <div class="instructions">
+                    <h3>조리 방법</h3>
+                    <ul>
+                        <li>닭고기를 깨끗하게 씻고, 소금과 후추로 간을 한다.</li>
+                        <li>밀가루와 전분을 섞어 옷가지를 준비한다.</li>
+                        <li>기름을 뜨겁게 달군 후 닭고기를 튀긴다.</li>
+                        <li>튀겨진 치킨을 기름에서 꺼내고, 종이 타올 위에 올려 여분의 기름을 제거한다.</li>
+                    </ul>
+                </div>
+
+                <div class="drink-recommendation">
+                    <h3>추천 음료</h3>
+                    <p>프라이드 치킨과 잘 어울리는 음료는 콜라나 맥주입니다.</p>
+                </div>
+
+                <button class="favorite-icon">
+                    <span>즐겨찾기</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/" title="Youtube"><img src="youtube.png" alt="Youtube"></a>
+            <a href="https://www.blog.com/" title="Blog"><img src="blog.png" alt="Blog"></a>
+        </div>
+    </footer>
+
+    <script>
+        const favoriteButton = document.querySelector('.favorite-icon');
+        favoriteButton.addEventListener('click', () => {
+            favoriteButton.classList.toggle('liked');
+            if (favoriteButton.classList.contains('liked')) {
+                favoriteButton.querySelector('span').textContent = '즐겨찾기 완료';
+            } else {
+                favoriteButton.querySelector('span').textContent = '즐겨찾기';
+            }
+        });
+    </script>
+</body>
+</html>
